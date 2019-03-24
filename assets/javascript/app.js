@@ -73,7 +73,7 @@ const getinfo = i => {
 document.addEventListener('click', e => {
     if(e.target.id === 'submit' && moretopic.value){
         e.preventDefault()
-        document.querySelector('.favgif').innerHTML = ''
+        document.querySelector('.favgifs').innerHTML = ''
         topiclist.push(moretopic.value)
         topicbtn()
     } else if (e.target.id === 'submit' && !moretopic.value) {
@@ -81,7 +81,7 @@ document.addEventListener('click', e => {
     } else if (e.target.className === 'gifbtns') {
         document.querySelector('.infobtn').innerHTML = ''
         let searchtitle = document.createElement('button')
-        searchtitle.textContent = 'Show Infomation'
+        searchtitle.textContent = 'Related movie/show'
         searchtitle.className = 'infomation'
         searchtitle.value = e.target.value
         document.querySelector('.infobtn').append(searchtitle)
