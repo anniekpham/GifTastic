@@ -13,7 +13,7 @@ const topicbtn = () => {
         let favgif = document.createElement('img')
         favgif.setAttribute('src', favorite)
         favgif.className = 'favgif'
-        document.querySelector('.favgif').append(favgif)
+        document.querySelector('.favgifs').append(favgif)
     })
     for (i = 0; i < topiclist.length; i++) {
         makebtn = document.createElement('button')
@@ -37,16 +37,17 @@ const getgif = e => {
             addgifs.name = gif.title
             document.querySelector('.gifs').appendChild(addgifs)
 
+            let likebtn = document.createElement('input')
+            likebtn.setAttribute('type', 'image')
+            likebtn.src = './assets/css/like.png'
+            likebtn.className = 'like'
+            likebtn.play = addgifs.dataset.play
+            document.querySelector('.gifs').appendChild(likebtn)
+
             let rating = document.createElement('span')
             rating.innerHTML = `Title: ${gif.title} <br/> Rating: ${gif.rating} `
             rating.className = 'rating'
             document.querySelector('.gifs').appendChild(rating)
-
-            let likebtn = document.createElement('button')
-            likebtn.textContent = 'Like'
-            likebtn.className = 'like'
-            likebtn.play = addgifs.dataset.play
-            document.querySelector('.gifs').appendChild(likebtn)
         })
     })
     .catch (e => console.error(e))
@@ -56,7 +57,7 @@ const getinfo = i => {
     fetch(`http://www.omdbapi.com/?apikey=d467d7fe&t=${i}`)
     .then(r => r.json())
     .then(r => {
-        document.querySelector('.showinfo').innerHTML = r.Response === 'False'
+        document.querySelector('.infobtn').innerHTML = r.Response === 'False'
         ? `
         <h1>Sorry, there's no movie or show with that title.</h1>
         ` : `
@@ -79,10 +80,9 @@ document.addEventListener('click', e => {
         e.preventDefault()
     } else if (e.target.className === 'gifbtns') {
         document.querySelector('.infobtn').innerHTML = ''
-        document.querySelector('.showinfo').innerHTML = ''
         let searchtitle = document.createElement('button')
         searchtitle.textContent = 'Show Infomation'
-        searchtitle.className = 'searchtitle'
+        searchtitle.className = 'infomation'
         searchtitle.value = e.target.value
         document.querySelector('.infobtn').append(searchtitle)
         document.querySelector('.gifs').innerHTML = ''
@@ -93,17 +93,17 @@ document.addEventListener('click', e => {
         } else if (e.target.src === e.target.dataset.play) {
             e.target.src = e.target.dataset.still
         }
-    }else if (e.target.className === 'searchtitle') {
+    }else if (e.target.className === 'infomation') {
         getinfo(e.target.value)
     }else if (e.target.className === 'like' && favgif.indexOf(e.target.play)===-1){
         favgif.push(e.target.play)
         localStorage.setItem('favgif', JSON.stringify(favgif))
-        document.querySelector('.favgif').innerHTML = ''
+        document.querySelector('.favgifs').innerHTML = ''
         favgif.forEach(favorite => {
             let favgif = document.createElement('img')
             favgif.setAttribute('src', favorite)
             favgif.className = 'favgif'
-            document.querySelector('.favgif').append(favgif)
+            document.querySelector('.favgifs').append(favgif)
         })
         if(favgif.indexOf(e.target.play)===1) {
             e.preventDefault()

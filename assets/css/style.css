@@ -1,5 +1,10 @@
 body {
-    background-image: url(./prism.png)
+    background-image: url(./prism.png);
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
 }
 .container {
     max-width: 100%;
@@ -11,13 +16,13 @@ body {
     padding: 3.5% 1%;
     font-family: 'Lekton', sans-serif;
 }
-.like {
-    display: block;
-}
 .rating {
     display: block;
-    width: 35%;
-    margin: 0;
+    /* width: 35%; */
+    margin: auto;
+    font-family: 'Lekton', sans-serif;  
+    color: white;
+    text-align: center
 }
 .searchbar {
     width: 100%;
@@ -35,17 +40,53 @@ body {
 .userinput {
     height: 40px;
     width: 80%;
-    background-color: white;
     font-family: 'Lekton', sans-serif;  
     vertical-align: top;
     border: none;
     box-shadow: none;
 }
-.gifbtns {
+.gifbtns, .infomation {
     font-family: 'Lekton', sans-serif;  
     margin: 1%;
     font-weight: bold;
+    border: none;
+    background-color: rgb(240, 240, 240);
+    box-shadow: none;
 }
 .topics {
-    /* margin: auto; */
+    text-align: center;
+}
+.info {
+    text-align: center;
+    font-family: 'Lekton', sans-serif;  
+    color: white;
+    margin: 3% 4%;
+}
+.like {
+    width: 30px;
+    display: block;
+    margin: auto;
+}
+.play {
+    display: block;
+    margin: auto;
+    height: 120px;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+.likes {
+    display: block;
+    font-family: 'Lekton', sans-serif;  
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 3%;
+    border-top: 2px solid white;
+    margin-top: 4%;
+}
+.favgif {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    height: 110px;
+    margin-left: 2%;
 }
