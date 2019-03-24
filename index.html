@@ -5,18 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/css/CSS_Reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lekton|Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <div id="topics"></div>
-    <form id="usertopic">
-        <input type="text" id="userinput">
-        <input type="submit" id="submit">
-    </form>
-    <div class="infobtn"></div>
-    <div class="showinfo"></div>
-    <div id="gifs"></div>
+    <div class="container">
+        <header class="row name">GifTastic</header>
+        <form class="searchbar" id="usertopic">
+            <input class="userinput" type="text" id="userinput">
+            <button type="submit" class="searchbtn" id="submit">  <i class="material-icons">search</i></button>
+        </form>
+        <div class="topics" id="topics"></div>
+        <div class="info">
+            <div class="infobtn"></div>
+            <div class="showinfo"></div>
+        </div>
+        <div class="gifs"></div>
+            <div class="favgif"></div>  
+        </div>
+    </div>
 <script src="./assets/javascript/app.js"></script>
 </body>
 </html>
