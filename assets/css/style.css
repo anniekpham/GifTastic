@@ -1,6 +1,9 @@
 body {
     background-image: url(./prism.png)
 }
+.container {
+    max-width: 100%;
+}
 .name {
     font-size: 30px;
     color: white;
@@ -25,6 +28,9 @@ body {
     height: 42px;
     width: 12%;  
     vertical-align: top; 
+    border: none;
+    background-color: white;
+    box-shadow: none;
 }
 .userinput {
     height: 40px;
