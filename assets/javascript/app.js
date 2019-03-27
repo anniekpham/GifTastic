@@ -3,12 +3,11 @@ let topiclist = ['Spongebob', 'Kim Possible', 'Looney Tunes', 'Tom and Jerry', '
     makebtn,
     gif,
     addgifs,
-    favgif =  JSON.parse(localStorage.getItem('favgif')) || []
+    favgif =  JSON.parse(localStorage.getItem('favgif')) || [],
 
 const topicbtn = () => {
     document.querySelector('#userinput').value = ''
     document.querySelector('#topics').innerHTML = ''
-    // localStorage.removeItem('favgif')
     favgif.forEach(favorite => {
         let favgif = document.createElement('img')
         favgif.setAttribute('src', favorite)
@@ -25,7 +24,7 @@ const topicbtn = () => {
 }
 
 const getgif = e => {
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${e}&api_key=hisHnd4J8mVXb4QHuGyDQthEz43XLytH&limit=10`)
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${e}&api_key=hisHnd4J8mVXb4QHuGyDQthEz43XLytH&limit=10`)
     .then (r => r.json())
     .then (r => {
         r.data.forEach(gif => {
@@ -54,12 +53,12 @@ const getgif = e => {
 }
 
 const getinfo = i => {
-    fetch(`http://www.omdbapi.com/?apikey=d467d7fe&t=${i}`)
+    fetch(`https://www.omdbapi.com/?apikey=d467d7fe&t=${i}`)
     .then(r => r.json())
     .then(r => {
         document.querySelector('.infobtn').innerHTML = r.Response === 'False'
         ? `
-        <h1>Sorry, there's no movie or show with that title.</h1>
+        <h1>Sorry, there's no related movie or show.</h1>
         ` : `
         <h3>${r.Title}</h3>
         <h3>${r.Year}</h3>
@@ -85,6 +84,13 @@ document.addEventListener('click', e => {
         searchtitle.className = 'infomation'
         searchtitle.value = e.target.value
         document.querySelector('.infobtn').append(searchtitle)
+
+        let newnum = document.createElement('button')
+        newnum.textContent = 'More Gif!'
+        newnum.className = 'newnum'
+        newnum.value = e.target.value
+        document.querySelector('.name').appendChild(newnum)
+
         document.querySelector('.gifs').innerHTML = ''
         getgif(e.target.value)
     }else if (e.target.className === 'play') {
