@@ -85,12 +85,6 @@ document.addEventListener('click', e => {
         searchtitle.value = e.target.value
         document.querySelector('.infobtn').append(searchtitle)
 
-        let newnum = document.createElement('button')
-        newnum.textContent = 'More Gif!'
-        newnum.className = 'newnum'
-        newnum.value = e.target.value
-        document.querySelector('.name').appendChild(newnum)
-
         document.querySelector('.gifs').innerHTML = ''
         getgif(e.target.value)
     }else if (e.target.className === 'play') {
