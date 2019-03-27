@@ -3,7 +3,7 @@ let topiclist = ['Spongebob', 'Kim Possible', 'Looney Tunes', 'Tom and Jerry', '
     makebtn,
     gif,
     addgifs,
-    favgif =  JSON.parse(localStorage.getItem('favgif')) || [],
+    favgif =  JSON.parse(localStorage.getItem('favgif')) || []
 
 const topicbtn = () => {
     document.querySelector('#userinput').value = ''
